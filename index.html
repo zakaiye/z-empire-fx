@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Z EMPIRE FX | Learn • Trade • Grow</title>
+<style>
+:root{--navy:#04132e;--gold:#f5bd28;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-serif}
+header{padding:20px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #263d62}
+.logo{font-size:25px;font-weight:bold;color:var(--gold)}
+nav a{color:white;text-decoration:none;margin:0 10px}
+button{cursor:pointer;border:0;border-radius:9px;padding:13px 20px;font-weight:bold}
+.gold{background:var(--gold);color:#07152e}
+.outline{background:transparent;color:white;border:1px solid var(--gold)}
+.hero{padding:65px 6%;display:grid;grid-template-columns:1.2fr .8fr;gap:35px;align-items:center;background:radial-gradient(circle at 75% 45%,#12396b,#04132e 65%)}
+h1{font-size:clamp(40px,6vw,70px);margin:10px 0;color:white}
+h1 span,.gold-text{color:var(--gold)}
+.hero p{font-size:18px;line-height:1.6;color:#d6e0f1}
+.panel{background:#0b2042;border:1px solid var(--gold);border-radius:18px;padding:25px}
+.panel h2{color:var(--gold);margin-top:0}
+input{width:100%;padding:14px;margin:8px 0;background:#06152e;border:1px solid #385078;border-radius:8px;color:white;font-size:16px}
+.panel button{width:100%;margin-top:12px}
+.small{font-size:13px;color:#b8c8df}
+section{padding:45px 6%}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feature{background:#0b2042;padding:22px;border-radius:12px;border:1px solid #203b63}
+.feature h3{color:var(--gold)}
+footer{text-align:center;padding:25px;border-top:1px solid #263d62;color:#b8c8df}
+.hidden{display:none}
+@media(max-width:750px){.hero{grid-template-columns:1fr;padding:38px 5%}.features{grid-template-columns:1fr}nav{display:none}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">👑 Z EMPIRE FX</div>
+<nav><a href="#home">Home</a><a href="#courses">Courses</a><a href="#about">About</a></nav>
+<button class="outline" onclick="toggleLanguage()">EN / SO</button>
+</header>
+
+<main>
+<div class="hero" id="home">
+<div>
+<p class="gold-text">LEARN • TRADE • GROW</p>
+<h1>Welcome to<br>Z EMPIRE <span>FX</span></h1>
+<h2 id="headline">Master Trading & Build Your Future</h2>
+<p id="intro">Professional trading education, practical strategies and a supportive learning community.</p>
+<button class="gold" onclick="document.getElementById('account').scrollIntoView({behavior:'smooth'})" id="start">Start Learning</button>
+<button class="outline" onclick="document.getElementById('courses').scrollIntoView({behavior:'smooth'})">Our Courses</button>
+</div>
+
+<div class="panel" id="account">
+<div id="signup">
+<h2 id="formtitle">Create Student Account</h2>
+<p class="small" id="formdesc">Join Z EMPIRE FX and start your learning journey.</p>
+<form onsubmit="event.preventDefault(); alert(currentLang==='en'?'Registration will be enabled after secure account setup.':'Diiwaangelinta waxaa la hawlgelin doonaa marka nidaamka amniga la diyaariyo.');">
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email Address" required>
+<input type="password" placeholder="Create Password" minlength="8" required>
+<input type="password" placeholder="Confirm Password" minlength="8" required>
+<button class="gold" type="submit">Create Account</button>
+</form>
+<p class="small">Already have an account? <a href="#" onclick="showLogin();return false" style="color:#f5bd28">Login Here</a></p>
+</div>
+<div id="login" class="hidden">
+<h2>Student Login</h2>
+<form onsubmit="event.preventDefault(); alert('Secure login will be connected soon.');">
+<input type="email" placeholder="Email Address" required>
+<input type="password" placeholder="Password" required>
+<button class="gold" type="submit">Login</button>
+</form>
+<p class="small">New student? <a href="#" onclick="showSignup();return false" style="color:#f5bd28">Create Account</a></p>
+</div>
+</div>
+</div>
+
+<section id="courses">
+<h2>Our <span class="gold-text">Courses</span></h2>
+<div class="features">
+<div class="feature"><h3>📈 Forex Foundations</h3><p>Learn the basics of Forex and how markets work.</p></div>
+<div class="feature"><h3>🥇 Gold Trading</h3><p>Understand XAUUSD, market structure and price action.</p></div>
+<div class="feature"><h3>🎯 Risk Management</h3><p>Learn discipline, position sizing and trading risk.</p></div>
+</div>
+</section>
+
+<section id="about">
+<h2>Why Choose <span class="gold-text">Z EMPIRE FX?</span></h2>
+<p>Learn with discipline. Practice with purpose. Build your trading knowledge step by step.</p>
+</section>
+</main>
+
+<footer>
+<p>© 2026 Z EMPIRE FX. All rights reserved.</p>
+<p>Trading education only. Not financial advice. Trading involves risk.</p>
+<p>WhatsApp: +251915256039 | Zekariyeqorane45@gmail.com</p>
+</footer>
+
+<script>
+let currentLang='en';
+function showLogin(){document.getElementById('signup').classList.add('hidden');document.getElementById('login').classList.remove('hidden')}
+function showSignup(){document.getElementById('login').classList.add('hidden');document.getElementById('signup').classList.remove('hidden')}
+function toggleLanguage(){
+currentLang=currentLang==='en'?'so':'en';
+document.getElementById('headline').textContent=currentLang==='en'?'Master Trading & Build Your Future':'Baro Trading-ka, Dhis Mustaqbalkaaga';
+document.getElementById('intro').textContent=currentLang==='en'?'Professional trading education, practical strategies and a supportive learning community.':'Waxbarasho trading, xeelado wax ku ool ah iyo bulsho waxbarasho oo ku taageerta.';
+document.getElementById('formtitle').textContent=currentLang==='en'?'Create Student Account':'Sameyso Akoon Arday';
+document.getElementById('formdesc').textContent=currentLang==='en'?'Join Z EMPIRE FX and start your learning journey.':'Ku soo biir Z EMPIRE FX oo bilow waxbarashadaada.';
+document.getElementById('start').textContent=currentLang==='en'?'Start Learning':'Bilow Waxbarashada';
+}
+</script>
+</body>
+</html>
