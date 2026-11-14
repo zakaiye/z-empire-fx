@@ -5,53 +5,54 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Z EMPIRE FX | Trading Academy</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#071426;color:white;line-height:1.6}
-header{background:#0b1d35;padding:22px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #d5a63e}
-.logo{font-size:25px;font-weight:bold;color:#e6b84b}
-nav a{color:white;text-decoration:none;margin-left:15px;font-size:14px}
-.hero{text-align:center;padding:100px 20px;background:linear-gradient(135deg,#071426,#17385b)}
-.hero h1{font-size:clamp(38px,7vw,65px);color:#e6b84b;margin-bottom:15px}
-.hero p{max-width:600px;margin:12px auto;color:#d0d8e5}
-.btn{display:inline-block;background:#d5a63e;color:#071426;padding:13px 25px;border-radius:6px;text-decoration:none;font-weight:bold;margin-top:20px}
-section{padding:65px 7%;text-align:center}
-h2{color:#e6b84b;font-size:30px;margin-bottom:18px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:30px}
-.card{background:#102541;border:1px solid #29405e;padding:28px;border-radius:12px}
-.card h3{color:#e6b84b;margin-bottom:12px}
-.card p{color:#c5cede}
-.about{background:#0b1d35}
-.contact a{color:#e6b84b}
-footer{background:#040c17;text-align:center;padding:25px;color:#aab5c5;font-size:13px}
-@media(max-width:600px){header{flex-direction:column;gap:15px}nav a{margin:0 7px}}
+:root{--navy:#071426;--gold:#d4af37;--white:#f5f5f5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-serif}
+header{padding:22px;text-align:center;border-bottom:1px solid var(--gold)}
+header h1{color:var(--gold);margin:0}
+nav{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;padding:16px}
+a{color:var(--gold);text-decoration:none}
+section{padding:35px 18px;max-width:950px;margin:auto}
+.hero{text-align:center;padding-top:65px;padding-bottom:65px}
+h2,h3{color:var(--gold)}
+.card{background:#10233d;border:1px solid #80691e;border-radius:12px;padding:20px;margin:14px 0}
+button{background:var(--gold);color:#071426;border:0;border-radius:7px;padding:12px 18px;font-weight:bold;cursor:pointer;margin:5px}
+input{width:100%;padding:13px;margin:8px 0;border-radius:7px;border:1px solid #777}
+.hidden{display:none}
+.muted{color:#c5cbd4}
+.lesson{border-bottom:1px solid #40516a;padding:12px 0}
+footer{text-align:center;padding:25px;border-top:1px solid var(--gold);color:#c5cbd4}
 </style>
 </head>
 <body>
+
 <header>
-<div class="logo">Z EMPIRE FX</div>
+<h1>Z EMPIRE FX</h1>
+<p>Trade with discipline. Build your empire.</p>
+</header>
+
 <nav>
 <a href="#home">Home</a>
 <a href="#courses">Courses</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
+<a href="#student">Student Login</a>
 </nav>
-</header>
 
-<div class="hero" id="home">
-<h1>Z EMPIRE FX</h1>
-<p>Trade with discipline. Build your empire.</p>
-<p>Learn professional trading skills, master risk management and build your trading journey with confidence.</p>
-<a class="btn" href="#courses">Explore Courses</a>
-</div>
+<section class="hero" id="home">
+<h2>Welcome to Z EMPIRE FX</h2>
+<h3>Master the Markets. Build Your Future.</h3>
+<p>Learn trading with discipline, knowledge and proper risk management.</p>
+<a href="#student"><button>Join Student Portal</button></a>
+</section>
 
 <section id="courses">
-<h2>Our Courses</h2>
-<p>Build your knowledge. Improve your trading.</p>
-<div class="cards">
+<h2>Our Courses | Casharradeenna</h2>
 <div class="card">
 <h3>Trading Fundamentals</h3>
-<p>Learn Forex basics, market structure and trading psychology.</p>
+<p>Learn the basics of Forex trading.</p>
 </div>
 <div class="card">
 <h3>Smart Money Concepts</h3>
@@ -59,30 +60,287 @@ footer{background:#040c17;text-align:center;padding:25px;color:#aab5c5;font-size
 </div>
 <div class="card">
 <h3>Risk Management</h3>
-<p>Learn position sizing, risk control and disciplined trading.</p>
+<p>Learn how to protect your trading capital.</p>
+</div>
+</section>
+
+<section id="about">
+<h2>About Z EMPIRE FX</h2>
+<p>We provide trading education focused on discipline, strategy and risk management.</p>
+<h3>Ku saabsan Z EMPIRE FX</h3>
+<p>Waxaan bixinnaa casharro trading ah oo diiradda saaraya aqoon, nidaam iyo ilaalinta lacagta.</p>
+</section>
+
+<section id="student">
+<div class="card">
+<h2>Student Portal</h2>
+<p class="muted">Create your account or log in to access your lessons.</p>
+
+<div id="auth-area">
+<h3>Create Student Account</h3>
+<input id="fullName" type="text" placeholder="Full name">
+<input id="email" type="email" placeholder="Email address">
+<input id="password" type="password" placeholder="Password (at least 6 characters)">
+<button onclick="signUp()">Sign Up</button>
+
+<hr>
+
+<h3>Student Login</h3>
+<input id="loginEmail" type="email" placeholder="Email address">
+<input id="loginPassword" type="password" placeholder="Password">
+<button onclick="logIn()">Login</button>
+</div>
+
+<p id="message" class="muted"></p>
+
+<div id="student-dashboard" class="hidden">
+<h3 id="welcome"></h3>
+<p id="approval-message"></p>
+<div id="lessons"></div>
+<button onclick="logOut()">Logout</button>
 </div>
 </div>
 </section>
 
-<section class="about" id="about">
-<h2>About Z Empire FX</h2>
-<p>Our mission is to help students develop trading knowledge, discipline and consistency through structured online education.</p>
-<br>
-<h2>Ku saabsan Z Empire FX</h2>
-<p>Hadafkeennu waa inaan ardayda barno aqoonta Forex, maaraynta khatarta iyo nidaam ganacsi oo wanaagsan.</p>
+<section id="instructor" class="hidden">
+<div class="card">
+<h2>Instructor Dashboard</h2>
+<h3>Student Accounts</h3>
+<div id="students-list"></div>
+<h3>Add a Lesson</h3>
+<input id="lessonTitle" placeholder="Lesson title">
+<input id="lessonDescription" placeholder="Lesson description">
+<input id="lessonVideo" placeholder="YouTube video URL">
+<input id="lessonOrder" type="number" placeholder="Lesson number">
+<button onclick="addLesson()">Publish Lesson</button>
+<p id="instructor-message"></p>
+</div>
 </section>
 
-<section id="contact" class="contact">
+<section id="contact">
 <h2>Contact Us</h2>
-<p>Ready to start your trading journey?</p>
-<p>WhatsApp: <a href="https://wa.me/251915256039">+251915256039</a></p>
+<p>WhatsApp: <a href="https://wa.me/251915256039">+251 915 256 039</a></p>
 <p>Email: <a href="mailto:Zekariyeqorane45@gmail.com">Zekariyeqorane45@gmail.com</a></p>
-<a class="btn" href="https://wa.me/251915256039">Join Us on WhatsApp</a>
 </section>
 
 <footer>
-<p>© 2026 Z EMPIRE FX. All rights reserved.</p>
-<p>Trading involves risk. Educational purposes only.</p>
+<p>Risk Disclaimer: Trading Forex and CFDs involves risk. Education does not guarantee profits.</p>
+<p>© Z EMPIRE FX</p>
 </footer>
+
+<script>
+const SUPABASE_URL = "https://awtdpqajhslrqcxkjjlk.supabase.co";
+ SUPABASE_KEY = "sb_publishable_GvWQO-xuQrLEXeBSeiTuUQ_TZwn_cAk";
+
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+function showMessage(text){
+  document.getElementById("message").textContent = text;
+}
+
+async function signUp(){
+  const name = document.getElementById("fullName").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  if(!name || !email || password.length < 6){
+    showMessage("Enter your name, email and a password of at least 6 characters.");
+    return;
+  }
+
+  showMessage("Creating your account...");
+  const {data,error} = await db.auth.signUp({
+    email,
+    password,
+    options:{data:{full_name:name}}
+  });
+
+  if(error){showMessage(error.message);return;}
+
+  if(data.session){
+    showMessage("Account created. Your instructor must approve your access.");
+    await loadUser();
+  }else{
+    showMessage("Account created. Check your email to confirm your account, then log in.");
+  }
+}
+
+async function logIn(){
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPassword").value;
+
+  showMessage("Logging in...");
+  const {error} = await db.auth.signInWithPassword({email,password});
+
+  if(error){showMessage(error.message);return;}
+  showMessage("");
+  await loadUser();
+}
+
+async function logOut(){
+  await db.auth.signOut();
+  document.getElementById("student-dashboard").classList.add("hidden");
+  document.getElementById("instructor").classList.add("hidden");
+  document.getElementById("auth-area").classList.remove("hidden");
+  showMessage("You have logged out.");
+}
+
+async function loadUser(){
+  const {data:{user}} = await db.auth.getUser();
+
+  if(!user){
+    document.getElementById("auth-area").classList.remove("hidden");
+    return;
+  }
+
+  document.getElementById("auth-area").classList.add("hidden");
+  document.getElementById("student-dashboard").classList.remove("hidden");
+  document.getElementById("welcome").textContent =
+    "Welcome, " + (user.user_metadata.full_name || user.email);
+
+  const isInstructor = user.app_metadata?.role === "instructor";
+
+  if(isInstructor){
+    document.getElementById("instructor").classList.remove("hidden");
+    await loadStudents();
+  }
+
+  const {data:profile,error:profileError} = await db
+    .from("profiles").select("approved").eq("id",user.id).maybeSingle();
+
+  if(profileError){
+    document.getElementById("approval-message").textContent = profileError.message;
+    return;
+  }
+
+  if(!profile || !profile.approved){
+    document.getElementById("approval-message").textContent =
+      "Your account is waiting for instructor approval. / Akoonkaaga wuxuu sugayaa oggolaansho.";
+    document.getElementById("lessons").innerHTML = "";
+    return;
+  }
+
+  document.getElementById("approval-message").textContent =
+    "Your account is approved. Welcome to your lessons!";
+
+  await loadLessons();
+}
+
+async function loadLessons(){
+  const area = document.getElementById("lessons");
+  area.innerHTML = "<p>Loading lessons...</p>";
+
+  const {data,error} = await db.from("lessons")
+    .select("id,title,description,video_url")
+    .eq("published",true)
+    .order("sort_order");
+
+  if(error){area.textContent = error.message;return;}
+  if(!data.length){area.textContent = "No lessons published yet.";return;}
+
+  area.innerHTML = "<h3>Your Lessons | Casharradaada</h3>";
+
+  data.forEach(lesson=>{
+    const item = document.createElement("div");
+    item.className = "lesson";
+
+    const title = document.createElement("h3");
+    title.textContent = lesson.title;
+    item.appendChild(title);
+
+    const description = document.createElement("p");
+    description.textContent = lesson.description || "";
+    item.appendChild(description);
+
+    if(lesson.video_url){
+      const link = document.createElement("a");
+      link.href = lesson.video_url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "Watch Lesson";
+      item.appendChild(link);
+    }
+
+    area.appendChild(item);
+  });
+}
+
+async function loadStudents(){
+  const area = document.getElementById("students-list");
+  const {data,error} = await db.from("profiles")
+    .select("id,full_name,approved,created_at")
+    .order("created_at",{ascending:false});
+
+  if(error){area.textContent = error.message;return;}
+  area.innerHTML = "";
+
+  data.forEach(student=>{
+    const item = document.createElement("div");
+    item.className = "lesson";
+
+    const name = document.createElement("p");
+    name.textContent = (student.full_name || "Student") +
+      " — " + (student.approved ? "Approved" : "Pending");
+    item.appendChild(name);
+
+    const button = document.createElement("button");
+    button.textContent = student.approved ? "Revoke Access" : "Approve Student";
+    button.onclick = ()=>changeApproval(student.id,!student.approved);
+    item.appendChild(button);
+
+    area.appendChild(item);
+  });
+}
+
+async function changeApproval(id,approved){
+  const {error} = await db.from("profiles")
+    .update({approved}).eq("id",id);
+
+  document.getElementById("instructor-message").textContent =
+    error ? error.message : "Student access updated.";
+  if(!error) await loadStudents();
+}
+
+async function addLesson(){
+  const title = document.getElementById("lessonTitle").value.trim();
+  const description = document.getElementById("lessonDescription").value.trim();
+  const video_url = document.getElementById("lessonVideo").value.trim();
+  const sort_order = Number(document.getElementById("lessonOrder").value || 0);
+
+  if(!title){
+    document.getElementById("instructor-message").textContent =
+      "Please enter a lesson title.";
+    return;
+  }
+
+  const {error} = await db.from("lessons").insert({
+    title,description,video_url,sort_order,published:true
+  });
+
+  document.getElementById("instructor-message").textContent =
+    error ? error.message : "Lesson published successfully.";
+
+  if(!error){
+    document.getElementById("lessonTitle").value = "";
+    document.getElementById("lessonDescription").value = "";
+    document.getElementById("lessonVideo").value = "";
+    document.getElementById("lessonOrder").value = "";
+    await loadLessons();
+  }
+}
+
+async function startApp(){
+  const {data:{session}} = await db.auth.getSession();
+  if(session) await loadUser();
+}
+
+db.auth.onAuthStateChange((event,session)=>{
+  if(event === "SIGNED_IN" && session){
+    setTimeout(loadUser,0);
+  }
+});
+
+startApp();
+</script>
 </body>
 </html>
