@@ -4,35 +4,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071426">
 <title>Z EMPIRE FX | Trading Academy</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-:root{--navy:#071426;--gold:#d4af37;--white:#f5f5f5}
+:root{--navy:#071426;--panel:#10233d;--gold:#d4af37;--white:#f5f5f5;--muted:#c5cbd4;--line:#40516a}
 *{box-sizing:border-box}
-body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-serif}
-header{padding:22px;text-align:center;border-bottom:1px solid var(--gold)}
-header h1{color:var(--gold);margin:0}
-nav{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;padding:16px}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--navy);color:var(--white);font-family:Arial,sans-serif;line-height:1.55}
+header{padding:24px 16px;text-align:center;border-bottom:1px solid var(--gold)}
+header h1{color:var(--gold);margin:0;font-size:clamp(27px,5vw,38px)}
+header p{margin:6px 0 0;color:var(--muted)}
+nav{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;padding:16px 10px;position:sticky;top:0;background:rgba(7,20,38,.97);z-index:10;border-bottom:1px solid #263b55}
 a{color:var(--gold);text-decoration:none}
-section{padding:35px 18px;max-width:950px;margin:auto}
-.hero{text-align:center;padding-top:65px;padding-bottom:65px}
-h2,h3{color:var(--gold)}
-.card{background:#10233d;border:1px solid #80691e;border-radius:12px;padding:20px;margin:14px 0}
-button{background:var(--gold);color:#071426;border:0;border-radius:7px;padding:12px 18px;font-weight:bold;cursor:pointer;margin:5px}
-input{width:100%;padding:13px;margin:8px 0;border-radius:7px;border:1px solid #777}
-.hidden{display:none}
-.muted{color:#c5cbd4}
-.lesson{border-bottom:1px solid #40516a;padding:12px 0}
-footer{text-align:center;padding:25px;border-top:1px solid var(--gold);color:#c5cbd4}
+a:hover{text-decoration:underline}
+section{padding:34px 18px;max-width:980px;margin:auto;scroll-margin-top:75px}
+.hero{text-align:center;padding-top:68px;padding-bottom:68px}
+h2,h3{color:var(--gold);line-height:1.25}
+.hero h2{font-size:clamp(27px,5vw,38px)}
+.card{background:var(--panel);border:1px solid #80691e;border-radius:15px;padding:22px;margin:14px 0;box-shadow:0 8px 25px #0002}
+button{background:var(--gold);color:#071426;border:0;border-radius:8px;padding:12px 18px;font-weight:bold;cursor:pointer;margin:5px}
+button:hover{filter:brightness(1.08)}
+input{width:100%;padding:13px;margin:8px 0;border-radius:8px;border:1px solid #77869a;background:#f8fafc;color:#101827;font-size:16px}
+.hidden{display:none!important}
+.muted{color:var(--muted)}
+.lesson{border-bottom:1px solid var(--line);padding:18px 0}
+.lesson:last-child{border-bottom:0}
+.video-wrap{position:relative;width:100%;aspect-ratio:16/9;margin:14px 0 4px;background:#000;border-radius:12px;overflow:hidden}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+footer{text-align:center;padding:25px 16px;border-top:1px solid var(--gold);color:var(--muted);margin-top:30px}
+hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+.status{padding:10px 12px;border-radius:8px;background:#0b1a2d;color:var(--muted);overflow-wrap:anywhere}
+@media(max-width:520px){nav{gap:12px;font-size:14px}section{padding:26px 14px}.card{padding:18px}}
 </style>
 </head>
 <body>
-
 <header>
 <h1>Z EMPIRE FX</h1>
 <p>Trade with discipline. Build your empire.</p>
 </header>
-
 <nav>
 <a href="#home">Home</a>
 <a href="#courses">Courses</a>
@@ -40,306 +50,261 @@ footer{text-align:center;padding:25px;border-top:1px solid var(--gold);color:#c5
 <a href="#contact">Contact</a>
 <a href="#student">Student Login</a>
 </nav>
-
 <section class="hero" id="home">
 <h2>Welcome to Z EMPIRE FX</h2>
 <h3>Master the Markets. Build Your Future.</h3>
 <p>Learn trading with discipline, knowledge and proper risk management.</p>
-<a href="#student"><button>Join Student Portal</button></a>
+<a href="#student"><button type="button">Join Student Portal</button></a>
 </section>
-
 <section id="courses">
 <h2>Our Courses | Casharradeenna</h2>
-<div class="card">
-<h3>Trading Fundamentals</h3>
-<p>Learn the basics of Forex trading.</p>
-</div>
-<div class="card">
-<h3>Smart Money Concepts</h3>
-<p>Understand liquidity, order blocks, FVG and market structure.</p>
-</div>
-<div class="card">
-<h3>Risk Management</h3>
-<p>Learn how to protect your trading capital.</p>
-</div>
+<div class="card"><h3>Trading Fundamentals</h3><p>Learn the basics of Forex trading.</p></div>
+<div class="card"><h3>Smart Money Concepts</h3><p>Understand liquidity, order blocks, FVG and market structure.</p></div>
+<div class="card"><h3>Risk Management</h3><p>Learn how to protect your trading capital.</p></div>
 </section>
-
 <section id="about">
 <h2>About Z EMPIRE FX</h2>
 <p>We provide trading education focused on discipline, strategy and risk management.</p>
 <h3>Ku saabsan Z EMPIRE FX</h3>
 <p>Waxaan bixinnaa casharro trading ah oo diiradda saaraya aqoon, nidaam iyo ilaalinta lacagta.</p>
 </section>
-
 <section id="student">
 <div class="card">
 <h2>Student Portal</h2>
 <p class="muted">Create your account or log in to access your lessons.</p>
-
 <div id="auth-area">
 <h3>Create Student Account</h3>
-<input id="fullName" type="text" placeholder="Full name">
-<input id="email" type="email" placeholder="Email address">
-<input id="password" type="password" placeholder="Password (at least 6 characters)">
-<button onclick="signUp()">Sign Up</button>
-
+<input id="fullName" type="text" autocomplete="name" placeholder="Full name">
+<input id="email" type="email" autocomplete="email" placeholder="Email address">
+<input id="password" type="password" autocomplete="new-password" placeholder="Password (at least 6 characters)">
+<button type="button" onclick="signUp()">Sign Up</button>
 <hr>
-
 <h3>Student Login</h3>
-<input id="loginEmail" type="email" placeholder="Email address">
-<input id="loginPassword" type="password" placeholder="Password">
-<button onclick="logIn()">Login</button>
+<input id="loginEmail" type="email" autocomplete="username" placeholder="Email address">
+<input id="loginPassword" type="password" autocomplete="current-password" placeholder="Password">
+<button type="button" onclick="logIn()">Login</button>
 </div>
-
-<p id="message" class="muted"></p>
-
+<p id="message" class="status" aria-live="polite"></p>
 <div id="student-dashboard" class="hidden">
 <h3 id="welcome"></h3>
 <p id="approval-message"></p>
 <div id="lessons"></div>
-<button onclick="logOut()">Logout</button>
+<button type="button" onclick="logOut()">Logout</button>
 </div>
 </div>
 </section>
-
 <section id="instructor" class="hidden">
 <div class="card">
 <h2>Instructor Dashboard</h2>
 <h3>Student Accounts</h3>
 <div id="students-list"></div>
+<hr>
 <h3>Add a Lesson</h3>
 <input id="lessonTitle" placeholder="Lesson title">
 <input id="lessonDescription" placeholder="Lesson description">
-<input id="lessonVideo" placeholder="YouTube video URL">
-<input id="lessonOrder" type="number" placeholder="Lesson number">
-<button onclick="addLesson()">Publish Lesson</button>
-<p id="instructor-message"></p>
+<input id="lessonVideo" type="url" placeholder="YouTube video URL">
+<input id="lessonOrder" type="number" min="1" placeholder="Lesson number">
+<button type="button" onclick="addLesson()">Publish Lesson</button>
+<p id="instructor-message" class="status" aria-live="polite"></p>
 </div>
 </section>
-
 <section id="contact">
 <h2>Contact Us</h2>
 <p>WhatsApp: <a href="https://wa.me/251915256039">+251 915 256 039</a></p>
 <p>Email: <a href="mailto:Zekariyeqorane45@gmail.com">Zekariyeqorane45@gmail.com</a></p>
 </section>
-
 <footer>
 <p>Risk Disclaimer: Trading Forex and CFDs involves risk. Education does not guarantee profits.</p>
 <p>© Z EMPIRE FX</p>
 </footer>
-
 <script>
 const SUPABASE_URL = "https://awtdpqajhslrqcxkjjlk.supabase.co";
- SUPABASE_KEY = "sb_publishable_GvWQO-xuQrLEXeBSeiTuUQ_TZwn_cAk";
-
+const SUPABASE_KEY = "sb_publishable_GvWQO-xuQrLEXeBSeiTuUQ_TZwn_cAk";
 const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-function showMessage(text){
-  document.getElementById("message").textContent = text;
+function el(id){return document.getElementById(id);}
+function showMessage(text){el("message").textContent=text||"";}
+
+function youtubeEmbedUrl(input){
+try{
+const u=new URL(input);
+let id="";
+if(u.hostname==="youtu.be") id=u.pathname.split("/").filter(Boolean)[0]||"";
+else if(["youtube.com","www.youtube.com","m.youtube.com","youtube-nocookie.com","www.youtube-nocookie.com"].includes(u.hostname)){
+if(u.pathname==="/watch") id=u.searchParams.get("v")||"";
+else if(/^\/(embed|shorts|live)\//.test(u.pathname)) id=u.pathname.split("/")[2]||"";
+}
+if(!/^[A-Za-z0-9_-]{11}$/.test(id)) return null;
+return "https://www.youtube-nocookie.com/embed/"+id;
+}catch(e){return null;}
 }
 
 async function signUp(){
-  const name = document.getElementById("fullName").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
-
-  if(!name || !email || password.length < 6){
-    showMessage("Enter your name, email and a password of at least 6 characters.");
-    return;
-  }
-
-  showMessage("Creating your account...");
-  const {data,error} = await db.auth.signUp({
-    email,
-    password,
-    options:{data:{full_name:name}}
-  });
-
-  if(error){showMessage(error.message);return;}
-
-  if(data.session){
-    showMessage("Account created. Your instructor must approve your access.");
-    await loadUser();
-  }else{
-    showMessage("Account created. Check your email to confirm your account, then log in.");
-  }
+const name=el("fullName").value.trim();
+const email=el("email").value.trim();
+const password=el("password").value;
+if(!name||!email||password.length<6){
+showMessage("Enter your name, email and a password of at least 6 characters.");
+return;
+}
+showMessage("Creating your account...");
+const {data,error}=await db.auth.signUp({email,password,options:{data:{full_name:name}}});
+if(error){showMessage(error.message);return;}
+if(data.session){
+showMessage("Account created. Your instructor must approve your access.");
+await loadUser();
+}else{
+showMessage("Account created. Check your email to confirm your account, then log in.");
+}
 }
 
 async function logIn(){
-  const email = document.getElementById("loginEmail").value.trim();
-  const password = document.getElementById("loginPassword").value;
-
-  showMessage("Logging in...");
-  const {error} = await db.auth.signInWithPassword({email,password});
-
-  if(error){showMessage(error.message);return;}
-  showMessage("");
-  await loadUser();
+const email=el("loginEmail").value.trim();
+const password=el("loginPassword").value;
+showMessage("Logging in...");
+const {error}=await db.auth.signInWithPassword({email,password});
+if(error){showMessage(error.message);return;}
+showMessage("");
+await loadUser();
 }
 
 async function logOut(){
-  await db.auth.signOut();
-  document.getElementById("student-dashboard").classList.add("hidden");
-  document.getElementById("instructor").classList.add("hidden");
-  document.getElementById("auth-area").classList.remove("hidden");
-  showMessage("You have logged out.");
+const {error}=await db.auth.signOut();
+if(error){showMessage(error.message);return;}
+el("student-dashboard").classList.add("hidden");
+el("instructor").classList.add("hidden");
+el("auth-area").classList.remove("hidden");
+el("lessons").innerHTML="";
+showMessage("You have logged out.");
 }
 
 async function loadUser(){
-  const {data:{user}} = await db.auth.getUser();
-
-  if(!user){
-    document.getElementById("auth-area").classList.remove("hidden");
-    return;
-  }
-
-  document.getElementById("auth-area").classList.add("hidden");
-  document.getElementById("student-dashboard").classList.remove("hidden");
-  document.getElementById("welcome").textContent =
-    "Welcome, " + (user.user_metadata.full_name || user.email);
-
-  const isInstructor = user.app_metadata?.role === "instructor";
-
-  if(isInstructor){
-    document.getElementById("instructor").classList.remove("hidden");
-    await loadStudents();
-  }
-
-  const {data:profile,error:profileError} = await db
-    .from("profiles").select("approved").eq("id",user.id).maybeSingle();
-
-  if(profileError){
-    document.getElementById("approval-message").textContent = profileError.message;
-    return;
-  }
-
-  if(!profile || !profile.approved){
-    document.getElementById("approval-message").textContent =
-      "Your account is waiting for instructor approval. / Akoonkaaga wuxuu sugayaa oggolaansho.";
-    document.getElementById("lessons").innerHTML = "";
-    return;
-  }
-
-  document.getElementById("approval-message").textContent =
-    "Your account is approved. Welcome to your lessons!";
-
-  await loadLessons();
+const {data:{user},error:userError}=await db.auth.getUser();
+if(userError){showMessage(userError.message);return;}
+if(!user){
+el("auth-area").classList.remove("hidden");
+el("student-dashboard").classList.add("hidden");
+el("instructor").classList.add("hidden");
+return;
+}
+el("auth-area").classList.add("hidden");
+el("student-dashboard").classList.remove("hidden");
+el("welcome").textContent="Welcome, "+(user.user_metadata?.full_name||user.email||"Student");
+const isInstructor=user.app_metadata?.role==="instructor";
+el("instructor").classList.toggle("hidden",!isInstructor);
+if(isInstructor) await loadStudents();
+const {data:profile,error:profileError}=await db.from("profiles").select("approved").eq("id",user.id).maybeSingle();
+if(profileError){el("approval-message").textContent=profileError.message;return;}
+if(!profile||!profile.approved){
+el("approval-message").textContent="Your account is waiting for instructor approval. / Akoonkaaga wuxuu sugayaa oggolaansho.";
+el("lessons").innerHTML="";
+return;
+}
+el("approval-message").textContent="Your account is approved. Welcome to your lessons!";
+await loadLessons();
 }
 
 async function loadLessons(){
-  const area = document.getElementById("lessons");
-  area.innerHTML = "<p>Loading lessons...</p>";
-
-  const {data,error} = await db.from("lessons")
-    .select("id,title,description,video_url")
-    .eq("published",true)
-    .order("sort_order");
-
-  if(error){area.textContent = error.message;return;}
-  if(!data.length){area.textContent = "No lessons published yet.";return;}
-
-  area.innerHTML = "<h3>Your Lessons | Casharradaada</h3>";
-
-  data.forEach(lesson=>{
-    const item = document.createElement("div");
-    item.className = "lesson";
-
-    const title = document.createElement("h3");
-    title.textContent = lesson.title;
-    item.appendChild(title);
-
-    const description = document.createElement("p");
-    description.textContent = lesson.description || "";
-    item.appendChild(description);
-
-    if(lesson.video_url){
-      const link = document.createElement("a");
-      link.href = lesson.video_url;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.textContent = "Watch Lesson";
-      item.appendChild(link);
-    }
-
-    area.appendChild(item);
-  });
+const area=el("lessons");
+area.innerHTML="<p>Loading lessons...</p>";
+const {data,error}=await db.from("lessons").select("id,title,description,video_url").eq("published",true).order("sort_order");
+if(error){area.textContent=error.message;return;}
+if(!data||!data.length){area.textContent="No lessons published yet.";return;}
+area.innerHTML="<h3>Your Lessons | Casharradaada</h3>";
+data.forEach(lesson=>{
+const item=document.createElement("div");
+item.className="lesson";
+const title=document.createElement("h3");
+title.textContent=lesson.title||"Lesson";
+item.appendChild(title);
+const description=document.createElement("p");
+description.textContent=lesson.description||"";
+item.appendChild(description);
+const embedUrl=lesson.video_url?youtubeEmbedUrl(lesson.video_url):null;
+if(embedUrl){
+const wrap=document.createElement("div");
+wrap.className="video-wrap";
+const frame=document.createElement("iframe");
+frame.src=embedUrl;
+frame.title=lesson.title||"Z EMPIRE FX lesson video";
+frame.loading="lazy";
+frame.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+frame.referrerPolicy="strict-origin-when-cross-origin";
+frame.allowFullscreen=true;
+wrap.appendChild(frame);
+item.appendChild(wrap);
+}else if(lesson.video_url){
+const note=document.createElement("p");
+note.className="muted";
+note.textContent="This video link is not a valid YouTube link. Please contact the instructor.";
+item.appendChild(note);
+}
+area.appendChild(item);
+});
 }
 
 async function loadStudents(){
-  const area = document.getElementById("students-list");
-  const {data,error} = await db.from("profiles")
-    .select("id,full_name,approved,created_at")
-    .order("created_at",{ascending:false});
-
-  if(error){area.textContent = error.message;return;}
-  area.innerHTML = "";
-
-  data.forEach(student=>{
-    const item = document.createElement("div");
-    item.className = "lesson";
-
-    const name = document.createElement("p");
-    name.textContent = (student.full_name || "Student") +
-      " — " + (student.approved ? "Approved" : "Pending");
-    item.appendChild(name);
-
-    const button = document.createElement("button");
-    button.textContent = student.approved ? "Revoke Access" : "Approve Student";
-    button.onclick = ()=>changeApproval(student.id,!student.approved);
-    item.appendChild(button);
-
-    area.appendChild(item);
-  });
+const area=el("students-list");
+area.innerHTML="<p>Loading students...</p>";
+const {data,error}=await db.from("profiles").select("id,full_name,approved,created_at").order("created_at",{ascending:false});
+if(error){area.textContent=error.message;return;}
+area.innerHTML="";
+if(!data||!data.length){area.textContent="No student accounts yet.";return;}
+data.forEach(student=>{
+const item=document.createElement("div");
+item.className="lesson";
+const name=document.createElement("p");
+name.textContent=(student.full_name||"Student")+" — "+(student.approved?"Approved":"Pending");
+item.appendChild(name);
+const button=document.createElement("button");
+button.type="button";
+button.textContent=student.approved?"Revoke Access":"Approve Student";
+button.onclick=()=>changeApproval(student.id,!student.approved);
+item.appendChild(button);
+area.appendChild(item);
+});
 }
 
 async function changeApproval(id,approved){
-  const {error} = await db.from("profiles")
-    .update({approved}).eq("id",id);
-
-  document.getElementById("instructor-message").textContent =
-    error ? error.message : "Student access updated.";
-  if(!error) await loadStudents();
+const {error}=await db.from("profiles").update({approved}).eq("id",id);
+el("instructor-message").textContent=error?error.message:"Student access updated.";
+if(!error) await loadStudents();
 }
 
 async function addLesson(){
-  const title = document.getElementById("lessonTitle").value.trim();
-  const description = document.getElementById("lessonDescription").value.trim();
-  const video_url = document.getElementById("lessonVideo").value.trim();
-  const sort_order = Number(document.getElementById("lessonOrder").value || 0);
-
-  if(!title){
-    document.getElementById("instructor-message").textContent =
-      "Please enter a lesson title.";
-    return;
-  }
-
-  const {error} = await db.from("lessons").insert({
-    title,description,video_url,sort_order,published:true
-  });
-
-  document.getElementById("instructor-message").textContent =
-    error ? error.message : "Lesson published successfully.";
-
-  if(!error){
-    document.getElementById("lessonTitle").value = "";
-    document.getElementById("lessonDescription").value = "";
-    document.getElementById("lessonVideo").value = "";
-    document.getElementById("lessonOrder").value = "";
-    await loadLessons();
-  }
+const title=el("lessonTitle").value.trim();
+const description=el("lessonDescription").value.trim();
+const video_url=el("lessonVideo").value.trim();
+const sort_order=Number(el("lessonOrder").value||0);
+if(!title){el("instructor-message").textContent="Please enter a lesson title.";return;}
+if(video_url&&!youtubeEmbedUrl(video_url)){
+el("instructor-message").textContent="Please enter a valid YouTube video URL.";
+return;
+}
+el("instructor-message").textContent="Publishing lesson...";
+const {error}=await db.from("lessons").insert({title,description,video_url,sort_order,published:true});
+el("instructor-message").textContent=error?error.message:"Lesson published successfully.";
+if(!error){
+el("lessonTitle").value="";
+el("lessonDescription").value="";
+el("lessonVideo").value="";
+el("lessonOrder").value="";
+await loadLessons();
+}
 }
 
 async function startApp(){
-  const {data:{session}} = await db.auth.getSession();
-  if(session) await loadUser();
+const {data:{session}}=await db.auth.getSession();
+if(session) await loadUser();
 }
-
 db.auth.onAuthStateChange((event,session)=>{
-  if(event === "SIGNED_IN" && session){
-    setTimeout(loadUser,0);
-  }
+if(event==="SIGNED_IN"&&session) setTimeout(loadUser,0);
+if(event==="SIGNED_OUT"){
+el("student-dashboard").classList.add("hidden");
+el("instructor").classList.add("hidden");
+el("auth-area").classList.remove("hidden");
+}
 });
-
 startApp();
 </script>
 </body>
